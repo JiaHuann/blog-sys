@@ -5,16 +5,8 @@ const initDB = require('./src/init/initDB');
 
 
 
-
 //实例化
-
-
-
-
 const app = express();
-
-
-
 
 const main = async () => {
     //初始化数据库

@@ -1,4 +1,4 @@
-const { DataTypes } = require('sequelize')
+const { DataTypes, Model } = require('sequelize')
 const sequelize = require('../db/sequelize')
 
 const Article = sequelize.define('article', {
@@ -20,3 +20,5 @@ const Article = sequelize.define('article', {
         allowNull: false,
     }
 })
+
+module.exports = Article

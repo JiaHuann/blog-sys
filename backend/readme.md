@@ -7,7 +7,8 @@
 生产依赖:
 - express app实例
 - dotenv 独立全局变量，将代码和配置内容分离
-- mysql2  
+- mysql2
+- ORM：sequelize
 
 开发依赖：
 - nodemon 实时响应backend代码变化
@@ -19,3 +20,9 @@
 ## express
 
 ## mysql2
+
+## ORM：Sequelize
+
+### 建立model
+
+### 创建model关系

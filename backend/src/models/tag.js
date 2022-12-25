@@ -8,9 +8,7 @@ const Tag = sequelize.define('tag', {
         allowNull: false,
         primaryKey: true
     },
-    {
-        timestamps: false
-    }
+    timestamps:false
 })
 
 module.exports = Tag
