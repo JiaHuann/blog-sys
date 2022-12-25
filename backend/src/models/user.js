@@ -2,26 +2,28 @@ const {DataTypes} = require('sequelize')
 const sequelize = require('../db/sequelize')
 
 const User = sequelize.define('user',{
-    email:{
+    email:{ //邮箱
         type:DataTypes.STRING,
         allowNull:false,
         primaryKey:true //每个User唯一的主关键字，用来记录
     },
-    username:{
+    username:{  //用户名
         type:DataTypes.STRING,
         allowNull:false,
         unique:true //不能充复
     },
-    passwd:{
+    passwd:{    //密码
         type:DataTypes.STRING,
         allowNull:false,
     },
-    avatar:{
+    avatar:{    //头像
         type:DataTypes.TEXT,
         allowNull:true,
     },
-    bio:{
+    bio:{   //个人简介
         type:DataTypes.STRING,
         allowNull:true,
     }
 })
+
+module.exports = User

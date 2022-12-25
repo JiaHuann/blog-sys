@@ -1,6 +1,13 @@
 const dbConnect = require('../db/connnection')
 
+const User = require('../models/user')
+const Article = require('../models/Article')
+const Comment = require('../models/Comment')
+const Tag = require('../models/Tag')
 
+const initRelation = ()=>{
+
+}
 
 const initDB = () => {
     return new Promise(async(resolve, reject) => {
