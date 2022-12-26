@@ -17,6 +17,9 @@ app.use(cors({credentials:true, origin:true}))//跨域
 app.use(express.json())
 app.use(morgan('tiny')) //http请求日志
 
+//初始化路由
+initRouter(app)
+
 //404错误处理
 app.use(noMatchMiddleware)
 
@@ -25,8 +28,7 @@ app.use(noMatchMiddleware)
 app.use(errorMiddleware)
 
 
-//初始化路由
-initRouter(app)
+
 
 
 //主函数
