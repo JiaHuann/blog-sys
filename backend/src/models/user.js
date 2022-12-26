@@ -1,7 +1,7 @@
 const {DataTypes} = require('sequelize')
 const sequelize = require('../db/sequelize')
 
-const User = sequelize.define('user',{
+const User = sequelize.define('User',{
     email:{ //邮箱
         type:DataTypes.STRING,
         allowNull:false,
@@ -21,7 +21,7 @@ const User = sequelize.define('user',{
         allowNull:true,
     },
     bio:{   //个人简介
-        type:DataTypes.STRING,
+        type:DataTypes.TEXT,
         allowNull:true,
     }
 })

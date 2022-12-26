@@ -1,21 +1,21 @@
-const { DataTypes, Model } = require('sequelize')
+const { DataTypes} = require('sequelize')
 const sequelize = require('../db/sequelize')
 
-const Article = sequelize.define('article', {
-    slug: { //别名
-        type: DataTypes.INTEGER,
+const Article = sequelize.define('Article', {
+    slug: { 
+        type: DataTypes.STRING,
         allowNull: false,
         primaryKey: true
     },
-    title: {  //题目编号
-        type: DataTypes.INTEGER,
+    title: {  
+        type: DataTypes.STRING,
         allowNull: false,
         
     },
-    description: {    //题目内容
+    description: {    
         type: DataTypes.TEXT,
     },
-    body: {    //内容
+    body: {    
         type: DataTypes.TEXT,
         allowNull: false,
     }

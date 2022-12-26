@@ -1,14 +1,15 @@
-const { DataTypes } = require('sequelize')
+const {DataTypes} = require('sequelize')
 const sequelize = require('../db/sequelize')
 
-const Tag = sequelize.define('tag', {
 
+const Tags = sequelize.define('Tags', {
     name: {    //内容
-        type: DataTypes.TEXT,
+        type: DataTypes.STRING,
         allowNull: false,
         primaryKey: true
     },
+},{
     timestamps:false
 })
 
-module.exports = Tag
+module.exports = Tags
