@@ -10,12 +10,23 @@
 - mysql2
 - ORM：sequelize
 
-中间件：
+应用级中间件：
 - cors
 - expressjson (Parser解析数据用)
 
+三方库：
+
+
 开发依赖：
 - nodemon 实时响应backend代码变化
+
+重点：
+- 数据库配置，链接
+- 分析，建立model关系
+- 路由模块化
+- 路由和控制器分离
+- 错误处理和错误转发到全部错误处理
+- md5加密
 
 ## 模块化
 
