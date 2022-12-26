@@ -8,7 +8,8 @@ const cors = require('cors')    //应用级中间件（跨域共享）
 const morgan = require('morgan') //日志中间件
 const app = express();
 
-const noMatchMiddleware = require('./src/middleware/index/404.middleware')
+const noMatchMiddleware = require('./src/middleware/404.middleware')//404错误处理
+const errorMiddleware = require('./src/middleware/error.middleware')//全部错误处理
 
 
 //中间件
@@ -21,6 +22,7 @@ app.use(noMatchMiddleware)
 
 
 //全部错误处理
+app.use(errorMiddleware)
 
 
 //初始化路由
