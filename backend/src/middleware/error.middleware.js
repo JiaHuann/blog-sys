@@ -6,10 +6,10 @@ const errorMiddleware = (error, req, res, next) => {
     const message = error.message || '服务器错误'
     const errors = error.errors || 'Sever is wrong'
 
-    res.status().json({
+    res.status(status).json({
         code: 0,
-        message,
-        errors
+        message:message,
+        errors:errors
     })
 }
 
