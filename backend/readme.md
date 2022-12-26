@@ -10,6 +10,10 @@
 - mysql2
 - ORM：sequelize
 
+中间件：
+- cors
+- expressjson (Parser解析数据用)
+
 开发依赖：
 - nodemon 实时响应backend代码变化
 
