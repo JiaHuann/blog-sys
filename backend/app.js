@@ -8,15 +8,26 @@ const cors = require('cors')    //应用级中间件（跨域共享）
 const morgan = require('morgan') //日志中间件
 const app = express();
 
+const noMatchMiddleware = require('./src/middleware/index/404.middleware')
+
 
 //中间件
 app.use(cors({credentials:true, origin:true}))//跨域
 app.use(express.json())
 app.use(morgan('tiny')) //http请求日志
 
+//404错误处理
+app.use(noMatchMiddleware)
+
+
+//全部错误处理
+
+
 //初始化路由
 initRouter(app)
 
+
+//主函数
 const main = async () => {
     //初始化数据库
     await initDB()
