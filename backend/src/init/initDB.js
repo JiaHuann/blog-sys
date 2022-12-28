@@ -1,3 +1,4 @@
+//引入db模块依赖
 const sequelize = require('../db/sequelize')
 const dbConnect = require('../db/connnection')
 
