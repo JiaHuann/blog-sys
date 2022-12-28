@@ -1,45 +1,34 @@
 //数据加密 md5方式
-// const md5 = require('md5')
-
-// const HACK = 'HACK'
-
-// const md5Passwd = (passwd)=>{
-//     return new Promise((resolve,reject)=>{
-//         const md5PWD = md5(passwd + HACK)
-//         resolve(md5PWD)
-//     })
-// }
-
-
-// const matchPasswd = (oldMd5PWD,passwd)=>{
-//     return new Promise((resolve,reject)=>{
-//         const newMd5PWD = md5(passwd + HACK)
-//         if(oldMd5PWD === newMd5PWD){
-//             resolve(true)
-//         }else{
-//             reject(false)
-//         }
-//     })
-// }
-
-// module.exports = md5Passwd
-// module.exports = matchPasswd
-
-// async function test(){
-//     const passwd = 'abcd'
-//     const md5pwd = md5Passwd(passwd)
-//     console.log('md5pwd',md5pwd);
-
-// }
-// test()
-
-//或者直接用 npm的 bcrypt
-
+const md5 = require('md5')
 const bcrypt = require('bcrypt')
 
 const SALT = 10
+const HACK = 'HACK'
 
-//加密
+//md5加密方法---------------------------------------------
+const md5Passwd = (passwd)=>{
+    return new Promise((resolve,reject)=>{
+        const md5PWD = md5(passwd + HACK)
+        resolve(md5PWD)
+    })
+}
+
+
+
+const md5MatchPasswd = (oldMd5PWD,passwd)=>{
+    return new Promise((resolve,reject)=>{
+        const newMd5PWD = md5(passwd + HACK)
+        if(oldMd5PWD === newMd5PWD){
+            resolve(true)
+        }else{
+            reject(false)
+        }
+    })
+}
+
+
+
+//hash加密方法-----------------------------------------------
 const hashPasswd = (passwd)=>{
     return new Promise((resolve,reject)=>{
         bcrypt.hash(passwd,SALT,(err,encrypted)=>{
@@ -52,17 +41,28 @@ const hashPasswd = (passwd)=>{
 }
 
 
-//比对
-const matchPasswd = (oldhashPWD,passwd)=>{
+
+const hashMatchPasswd = (oldhashPWD,passwd)=>{
     return new Promise(async (resolve,reject)=>{
         const match = await bcrypt.compare(passwd, oldhashPWD)
         console.log(match)
     })
 }
 
-module.exports = {matchPasswd,hashPasswd}
+module.exports = {md5Passwd,md5MatchPasswd,hashMatchPasswd,hashPasswd}
 
-//测试2
+
+//MD5 Test
+// async function test1(){
+//     const passwd = 'abcd'
+//     const md5pwd = md5Passwd(passwd)
+//     console.log('md5pwd',md5pwd);
+
+// }
+// test1()
+
+
+//Hash Test
 /* async function test2(){
     const passwd = 'abcd'
     const hashpwd = await hashPasswd(passwd)
