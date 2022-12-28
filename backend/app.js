@@ -13,7 +13,7 @@ const errorMiddleware = require('./src/middleware/error.middleware')//全部错�
 
 
 //应用级中间件
-app.use(cors({credentials:true, origin:true}))//跨域
+app.use(cors({ credentials: true, origin: true }))//跨域
 app.use(express.json())
 app.use(morgan('tiny')) //http请求日志
 
@@ -27,7 +27,7 @@ app.use(errorMiddleware)
 
 
 //主函数
-const main = async () => {  
+const main = async () => {
     //初始化数据库
     await initDB()
     //启动node服务

@@ -2,6 +2,7 @@ const {DataTypes} = require('sequelize')
 const sequelize = require('../db/sequelize')
 
 
+
 const User = sequelize.define('User',{
     email:{ //邮箱
         type:DataTypes.STRING,
