@@ -10,7 +10,7 @@ const User = sequelize.define('User',{
     username:{  //用户名
         type:DataTypes.STRING,
         allowNull:false,
-        unique:true //不能充复
+        unique:'username' //不能重复
     },
     passwd:{    //密码
         type:DataTypes.STRING,
