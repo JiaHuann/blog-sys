@@ -15,10 +15,10 @@ const md5Passwd = (passwd)=>{
 
 
 
-const md5MatchPasswd = (oldMd5PWD,passwd)=>{
+const md5MatchPasswd = (trueMd5PWD,passwd)=>{
     return new Promise((resolve,reject)=>{
         const newMd5PWD = md5(passwd + HACK)
-        if(oldMd5PWD === newMd5PWD){
+        if(trueMd5PWD === newMd5PWD){
             resolve(true)
         }else{
             reject(false)
