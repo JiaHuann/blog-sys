@@ -32,8 +32,8 @@ const initRelation = () => {
     });
 
     //文章-评论关系 一对多
-    Article.hasMany(Comment,{
-        onDelete:'CASCADE'
+    Article.hasMany(Comment, {
+        onDelete: 'CASCADE'
     });
     Comment.belongsTo(Article)
 
@@ -53,10 +53,10 @@ const initRelation = () => {
         timestamps: false,
     });
 
-    //用户-用户 多对多自相连关系 （订阅，粉丝）
-    User.belongsToMany(User, {
-        through: 'follow',
-        as: 'followers'  //暂不明
+    //用户 (源 ) - 用户（目标） 多对多自相连关系 （订阅，粉丝）
+    User.belongsToMany(User, { 
+        through: 'follows', //自动创建关联模型（表名）
+        as: 'followers'  //目标模型别名
     });
 }
 
