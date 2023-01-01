@@ -31,6 +31,7 @@ module.exports.authMiddleware = async (req, res, next) => {
             return next(new HttpException(401, 'token不存在', 'token not exist'))
         }
         req.user = user //req追加
+        req.token = authContent
         //console.log('解签后request:',req)
         return next()
     } catch (e) {

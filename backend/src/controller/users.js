@@ -124,7 +124,7 @@ module.exports.getUser = async (req, res, next) => {
         //3.返回数据
         //3.1去除passwd
         delete user.dataValues.passwd
-        user.dataValues.token = user.token
+        user.dataValues.token = req.token
 
         //3.2返回数据
         return res.status(200).json({
