@@ -47,7 +47,7 @@ module.exports.createUser = async (req, res, next) => {
             data.username = username
             data.email = email
             data.token = await sign(username, email)
-            console.log(data.token)
+            console.log('token创建成功:', data.token)
             data.bio = null
             data.avatar = null
 
@@ -103,10 +103,10 @@ module.exports.userLogin = async (req, res, next) => {
             message: "登陆成功"
         })
     } catch (error) {
+        console.log(error)
         next(error)
     }
 }
-
 
 
 //获取用户信息
@@ -134,5 +134,50 @@ module.exports.getUser = async (req, res, next) => {
         })
     } catch (e) {
         next(e)
+    }
+}
+
+
+//更新用户信息
+module.exports.updateUser = async (req, res, next) => {
+    try {
+        //1.获取请求数据
+        const { email } = req.user
+        const user = await User.findByPk(email) //如果根据email找到了，则返回相关的全部字段信息
+        if (!user) {
+            throw new HttpException(401, '用户不存在', 'User not exist')
+        }
+
+        //2.修改用户数据
+        //2.1获取要修改的数据
+        const updateUser = req.body.user
+        if (updateUser) {
+            //2.2修改字段判断(email主键不让修改)
+            const username = updateUser.username ? updateUser.username : user.username
+            const bio = updateUser.bio ? updateUser.bio : user.bio
+            const avatar = updateUser.avatar ? updateUser.avatar : user.avatar
+            //2.3修改密码验证
+            let passwd = user.passwd
+            if (updateUser.passwd) {
+                passwd = await md5Passwd(updateUser.passwd)
+            }
+            //2.3更新操作
+            const updated = await user.update({username,bio,passwd,avatar,bio})
+            //3.返回数据（去除passwd,重新发布token）
+            delete updated.dataValues.passwd
+            updated.dataValues.token = await sign(username,email)
+            res.status(200).json({
+                status:1,
+                message:"数据更新成功",
+                data:updated.dataValues
+            })
+            
+        } else {
+            throw new HttpException(401, '更新数据不能为空', 'no update Content')
+        }
+
+
+    } catch (error) {
+        next(error)
     }
 }

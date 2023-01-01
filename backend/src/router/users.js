@@ -12,4 +12,6 @@ router.post('/register',UserController.createUser)
 
 router.post('/login',UserController.userLogin)
 
+router.patch('/update', authMiddleware, UserController.updateUser)
+
 module.exports = router

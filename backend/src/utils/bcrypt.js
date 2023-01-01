@@ -9,7 +9,12 @@ const HACK = 'HACK'
 const md5Passwd = (passwd)=>{
     return new Promise((resolve,reject)=>{
         const md5PWD = md5(passwd + HACK)
-        resolve(md5PWD)
+        if(md5PWD){
+            resolve(md5PWD)
+        }else{
+            reject(false)
+        }
+        
     })
 }
 
@@ -19,9 +24,9 @@ const md5MatchPasswd = (trueMd5PWD,passwd)=>{
     return new Promise((resolve,reject)=>{
         const newMd5PWD = md5(passwd + HACK)
         if(trueMd5PWD === newMd5PWD){
-            resolve(true)
+           resolve(true)
         }else{
-            reject(false)
+           resolve(false)
         }
     })
 }
