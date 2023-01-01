@@ -26,14 +26,12 @@ module.exports.createUser = async (req, res, next) => {
         if (existEmail) {
             throw new HttpException(401, '用户邮箱已经存在', 'email exist')
         }
-        console.log('111')
 
         //创建用户
         //1）密码加密
         const md5PWD = await md5Passwd(passwd)
 
         //2）User model 存储数据库
-        console.log('222')
         const user = await User.create({ //调用Sequelize的方法
             username,
             passwd: md5PWD,
@@ -41,7 +39,6 @@ module.exports.createUser = async (req, res, next) => {
         })
 
         //3）创建成功：返回
-        console.log('333')
         let data = {}
         if (user) {
             console.log(user);
@@ -50,6 +47,7 @@ module.exports.createUser = async (req, res, next) => {
             data.username = username
             data.email = email
             data.token = await sign(username, email)
+            console.log(data.token)
             data.bio = null
             data.avatar = null
 
@@ -66,7 +64,7 @@ module.exports.createUser = async (req, res, next) => {
 }
 
 
-//获取用户
+//用户登录
 module.exports.userLogin = async (req, res, next) => {
     try {
         //0.验证接口权限（不需要）
@@ -81,7 +79,6 @@ module.exports.userLogin = async (req, res, next) => {
 
         //3.验证业务逻辑
         const user = await User.findByPk(email) //如果根据email找到了，则返回相关的全部字段信息
-        console.log(user)
         if (!user) {
             throw new HttpException(401, '用户不存在', 'User not exist')
         }
@@ -94,7 +91,11 @@ module.exports.userLogin = async (req, res, next) => {
         }
 
         //4.返回数据（token + data）
-
+        delete user.dataValues.passwd;
+        user.dataValues.token = await sign(
+            user.dataValues.username,
+            user.dataValues.email
+        )
 
         res.status(200).json({
             status: 1,
@@ -103,5 +104,35 @@ module.exports.userLogin = async (req, res, next) => {
         })
     } catch (error) {
         next(error)
+    }
+}
+
+
+
+//获取用户信息
+module.exports.getUser = async (req, res, next) => {
+    try {
+        //1.获取请求数据
+        const { email } = req.user
+
+        //2.验证email用户是否存在
+        const user = await User.findByPk(email)
+        if (!user) {
+            throw new HttpException(401, '用户不存在', 'User not exist')
+        }
+
+        //3.返回数据
+        //3.1去除passwd
+        delete user.dataValues.passwd
+        user.dataValues.token = user.token
+
+        //3.2返回数据
+        return res.status(200).json({
+            status: 1,
+            message: '用户信息请求成功',
+            data: user.dataValues
+        })
+    } catch (e) {
+        next(e)
     }
 }
