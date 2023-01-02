@@ -46,17 +46,18 @@ const initRelation = () => {
     //用户-文章 多对多关系（喜欢，收藏关系）
     User.belongsToMany(Article, {
         through: 'favorites',
-        timestamps: false,
+        timestamps: false
     });
     Article.belongsToMany(User, {
         through: 'favorites',
-        timestamps: false,
+        timestamps: false
     });
 
     //用户 (源 ) - 用户（目标） 多对多自相连关系 （订阅，粉丝）
     User.belongsToMany(User, { 
-        through: 'follows', //自动创建关联模型（表名）
-        as: 'followers'  //目标模型别名
+        through: 'Followers', //自动创建关联模型（表名）
+        as: 'followers',  //别名，以便ORM通过model进行操作
+        timestamps: false
     });
 }
 
