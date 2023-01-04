@@ -17,6 +17,9 @@ app.use(cors({ credentials: true, origin: true }))//跨域
 app.use(express.json())
 app.use(morgan('tiny')) //http请求日志
 
+//静态文件服务
+app.use('/static',express.static('public'))
+
 //初始化路由
 initRouter(app)
 
