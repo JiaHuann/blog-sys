@@ -1,8 +1,7 @@
-
 function App() {
   return (
     <div className="App">
-      App component
+      App component 666
     </div>
   );
 }
