@@ -18,6 +18,8 @@
 # Q&A
 **1.React-router-dom中的BrowserRouter, Route, Switch是什么**
 
+> !!! 2023.1.5 change ，用<kbd>v6</kbd>了，switch变为Routes，Route的component变为element，两者不兼容，注意。
+
 <kbd>BrowserRouter</kbd> 是一个路由组件，它可以使用HTML5的history API管理浏览器的地址栏。
 
 <kbd>Route</kbd>组件允许你在应用中声明特定路径和组件之间的关系。当用户访问特定路径时，Route组件会渲染相应的组件。
