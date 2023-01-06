@@ -5,6 +5,7 @@ import App from './App';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
+//子代路由一定要有这个通配符
 root.render(
     <BrowserRouter>
         <Routes>
