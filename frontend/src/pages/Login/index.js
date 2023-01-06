@@ -4,7 +4,10 @@ class Login extends Component {
     render() {
         return (
             <div>
-               1111
+                <elment class="slick-slide">
+                    <img className="pull-right" src="//localhost:8000/static/default_avatar.jpg" />
+                </elment>
+
             </div>
         )
     }
