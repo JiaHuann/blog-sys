@@ -15,7 +15,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Header currentUser={currentUser} />
+        <Header currentUser={currentUser} appName={appName} />
 
         <Routes>
           <Route path="/" element={<Home />} />
