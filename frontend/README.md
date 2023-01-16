@@ -5,7 +5,7 @@
 - prop-types 类型检查
 
 # 环境依赖
-- 
+- serve 用于react的静态服务
 # 前端组件树架构
 - components 公共组件
 - constants 存放常量
