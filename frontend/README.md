@@ -1,9 +1,11 @@
-# 依赖
+# 开发依赖
 - redux 状态管理
 - react-redux 通过dispatch映射redux
 - react-router-dom 路由
 - prop-types 类型检查
 
+# 环境依赖
+- 
 # 前端组件树架构
 - components 公共组件
 - constants 存放常量
@@ -14,7 +16,9 @@
 - app.js 根组件
 - index.js 入口文件
 
-
+# 前端性能优化
+- React lazy + import 动态加载
+- Suspense 组件处理：异步加载资源，页面显示读条
 # Q&A
 **1.React-router-dom中的BrowserRouter, Route, Switch是什么**
 

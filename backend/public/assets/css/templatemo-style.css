@@ -401,27 +401,37 @@ button:hover {
 .service-item {
     margin-bottom: 10px;
     padding: 50px;
-    background-color: rgba(250, 250, 250, 0.1);
+    background-color: rgba(100, 209, 228, 0.6);
     transition: all 0.5s;
 }
 
-.service-item h4 {
+.service-item h1 {
+    color: #dc535a;
+    transition: all 0.5s;
+}
+.service-item link{
+    color: #dc535a;
     transition: all 0.5s;
 }
 
-.service-item p {
+.service-item h2 {
+    color: #1c0808;
     transition: all 0.5s;
 }
 
 .service-item:hover {
-    background-color: rgba(250, 250, 250, 1);
+    background-color: rgb(112, 216, 27);
 }
 
-.service-item:hover h4 {
-    color: #1e1e1e;
+.service-item:hover h1 {
+    color: #e6f10d;
 }
 
-.service-item:hover p {
+.service-item:hover link {
+    color: #e6f10d;
+}
+
+.service-item:hover h2 {
     color: #4a4a4a;
 }
 

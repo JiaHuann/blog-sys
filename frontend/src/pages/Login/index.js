@@ -5,7 +5,7 @@ class Login extends Component {
         return (
             <div>
                 <elment class="slick-slide">
-                    <img className="pull-right" src="//localhost:8000/static/default_avatar.jpg" />
+                    <img className="pull-right" src="http://jiahuan.tech:8000/static/default_avatar.jpg" />
                 </elment>
 
             </div>
