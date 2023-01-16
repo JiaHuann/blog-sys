@@ -1,6 +1,5 @@
 import { Component } from "react";
 import { Link } from "react-router-dom";
-import Header from "../../components/BlogHeader";
 
 class Home extends Component {
     render() {

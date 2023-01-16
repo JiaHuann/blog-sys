@@ -1,6 +1,6 @@
 import { PureComponent } from "react";
 
-class Login extends PureComponent {
+class Article extends PureComponent {
     render() {
         return (
             <div>
@@ -13,4 +13,4 @@ class Login extends PureComponent {
     }
 }
 
-export default Login;
+export default Article;

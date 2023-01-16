@@ -1,9 +1,6 @@
 /*
-
 Reflux Template
-
 https://templatemo.com/tm-531-reflux
-
 */
 
 @import url(fontawesome.css);
@@ -409,7 +406,8 @@ button:hover {
     color: #dc535a;
     transition: all 0.5s;
 }
-.service-item link{
+
+.service-item link {
     color: #dc535a;
     transition: all 0.5s;
 }

@@ -4,7 +4,7 @@ const ReminderBoard = ({ currentUser }) => {
         return (
             <div className="author-content">
                 <a href="111"><h4>O F F L I N E</h4></a>
-                <span>Please <a href="111">Login.</a> </span>
+                <span>Please <a href="#">Login.</a> </span>
             </div>
         )
     } else {
