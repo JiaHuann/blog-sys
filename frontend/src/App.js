@@ -1,14 +1,16 @@
-import { PureComponent, lazy, Suspense } from "react";
+import { Component, lazy, Suspense } from "react";
 import { Routes, Route } from "react-router-dom"
-
+import Blog from "./pages/blog/Blog";
 //懒加载
 const Home = lazy(() => import('./pages/Home'))
-const Login = lazy(() => import('./pages/Login'))
-const Register = lazy(() => import('./pages/Register'))
+//const Login = lazy(() => import('./pages/Login'))
+//const Register = lazy(() => import('./pages/Register'))
 const Setting = lazy(() => import('./pages/Setting'))
 const Article = lazy(() => import('./pages/Article'))
 const Profile = lazy(() => import('./pages/Profile'))
-
+const Test = lazy(() => import('./pages/test'))
+const SignInSide = lazy(() => import('./pages/Login/SignInSide'))
+const SignUp = lazy(() => import('./pages/Register/SignUp'))
 const BlogHeader = lazy(() => import('./components/BlogHeader'))
 
 
@@ -20,23 +22,25 @@ const currentUser = {
   bio: 'user info'
 }
 
-class App extends PureComponent {
+class App extends Component {
 
   render() {
     return (
-      <div>
-        <Suspense fallback={<h1>loading...</h1>}>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/blog" element={<BlogHeader currentUser={currentUser} appName={appName} />} />
-            <Route path="/blog/login" element={<Login />} />
-            <Route path="/blog/register" element={<Register/>} />
-            <Route path="/blog/setting" element={<Setting/>} />
-            <Route path="/blog/article" element={<Article/>} />
-            <Route path="/blog/profile" element={<Profile/>} />
-          </Routes>
-        </Suspense>
-      </div >
+
+      <Suspense fallback={<h1>loading...</h1>}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/blog" element= {<Blog currentUser={currentUser} appName={appName} />} />
+          <Route path="/blog1" element= {<BlogHeader currentUser={currentUser} appName={appName}/>}/>
+          <Route path="/blog/login" element={<SignInSide />} />
+          <Route path="/blog/register" element={<SignUp />} />
+          <Route path="/blog/setting" element={<Setting />} />
+          <Route path="/blog/article" element={<Article />} />
+          <Route path="/blog/profile" element={<Profile />} />
+          <Route path="/test" element={<Test />} />
+        </Routes>
+      </Suspense>
+
     )
   }
 }
