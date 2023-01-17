@@ -27,9 +27,7 @@ function Header(props) {
         <IconButton>
           <SearchIcon />
         </IconButton>
-        <Button variant="outlined" size="small">
-          Sign up
-        </Button>
+        <Button variant="contained">登 录</Button>
       </Toolbar>
       <Toolbar
         component="nav"

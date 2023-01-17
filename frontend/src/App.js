@@ -11,7 +11,6 @@ const Profile = lazy(() => import('./pages/Profile'))
 const Test = lazy(() => import('./pages/test'))
 const SignInSide = lazy(() => import('./pages/Login/SignInSide'))
 const SignUp = lazy(() => import('./pages/Register/SignUp'))
-const BlogHeader = lazy(() => import('./components/BlogHeader'))
 
 
 //测试数据
@@ -31,7 +30,6 @@ class App extends Component {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/blog" element= {<Blog currentUser={currentUser} appName={appName} />} />
-          <Route path="/blog1" element= {<BlogHeader currentUser={currentUser} appName={appName}/>}/>
           <Route path="/blog/login" element={<SignInSide />} />
           <Route path="/blog/register" element={<SignUp />} />
           <Route path="/blog/setting" element={<Setting />} />
