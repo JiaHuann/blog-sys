@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import * as React from 'react';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
@@ -12,6 +13,7 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions } from '@material-ui/core';
 
 function Copyright(props) {
   return (
@@ -29,14 +31,37 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function SignUp() {
-  const handleSubmit = (event) => {
+  //FormData简化数据表单提交
+  const url = 'http://[' + process.env.REACT_APP_BE_SERVER+ ']:8000/api/v1/users/register'
+  console.log(url)
+  const handleSubmit = async (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
+    const payload = {
+      user: {
+        username: data.get('username'),
+        passwd: data.get('passwd'),
+        email: data.get('email')
+      }
+    }
+
+    try {
+      const res = await fetch(url, {
+        mode:'cors',
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(payload)
+      });
+      const json = await res.json();
+      console.log(json)
+      alert(JSON.stringify(json));
+    } catch (err) {
+      alert(err.message);
+    }
   };
+
 
   return (
     <ThemeProvider theme={theme}>
@@ -58,25 +83,14 @@ export default function SignUp() {
           </Typography>
           <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
             <Grid container spacing={2}>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  autoComplete="given-name"
-                  name="firstName"
-                  required
-                  fullWidth
-                  id="firstName"
-                  label="First Name"
-                  autoFocus
-                />
-              </Grid>
-              <Grid item xs={12} sm={6}>
+              <Grid item xs={12}>
                 <TextField
                   required
                   fullWidth
-                  id="lastName"
-                  label="Last Name"
-                  name="lastName"
-                  autoComplete="family-name"
+                  id="username"
+                  label="username"
+                  name="username"
+                  autoComplete="username"
                 />
               </Grid>
               <Grid item xs={12}>
@@ -93,10 +107,10 @@ export default function SignUp() {
                 <TextField
                   required
                   fullWidth
-                  name="password"
+                  name="passwd"
                   label="Password"
-                  type="password"
-                  id="password"
+                  type="passwd"
+                  id="passwd"
                   autoComplete="new-password"
                 />
               </Grid>

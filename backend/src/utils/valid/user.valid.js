@@ -9,7 +9,7 @@ module.exports.validCreateUser = (username, passwd, email) => {
     if (validator.isEmpty(passwd)) {
         error.passwd = '密码不能为空'
     }
-    if (validator.isEmpty(email) && validator.isEmail(email)) {
+    if (validator.isEmpty(email) || !validator.isEmail(email)) {
         error.email = '邮箱格式不对或为空'
     }
 

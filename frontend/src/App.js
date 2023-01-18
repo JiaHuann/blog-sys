@@ -12,12 +12,11 @@ const Test = lazy(() => import('./pages/test'))
 const SignInSide = lazy(() => import('./pages/Login/SignInSide'))
 const SignUp = lazy(() => import('./pages/Register/SignUp'))
 
-
 //测试数据
 const appName = 'blog'
 // const currentUser = {
 //   username: 'test',
-//   avatar: 'http://jiahuan.tech:8000/static/default_avatar.jpg',
+//   avatar: {`http://[${process.env.REACT_APP_BE_SERVER}]:8000/static/default_avatar.jpg`},
 //   bio: 'user info'
 // }
 const currentUser = null

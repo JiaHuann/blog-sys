@@ -7,9 +7,9 @@ import SearchIcon from '@mui/icons-material/Search';
 import Typography from '@mui/material/Typography';
 import Link from '@mui/material/Link';
 
-function Header(props) {
-  const { sections, title } = props;
 
+function Header(props) {
+  const { sections, title, currentUser} = props;
   return (
     <React.Fragment>
       <Toolbar sx={{ borderBottom: 1, borderColor: 'divider' }}>
@@ -27,7 +27,13 @@ function Header(props) {
         <IconButton>
           <SearchIcon />
         </IconButton>
-        <Button variant="contained">登 录</Button>
+        {currentUser ? (
+          <span>welcom</span>
+        ) : (
+          <Link href="/blog/register">
+            <Button variant="contained">注 册</Button>
+          </Link>
+        )}
       </Toolbar>
       <Toolbar
         component="nav"
