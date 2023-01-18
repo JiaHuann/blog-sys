@@ -4,6 +4,7 @@ import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
 import Markdown from './Markdown';
+import ArticleList from '../ArticleList';
 
 function Main(props) {
   const { posts, title } = props;
@@ -23,11 +24,12 @@ function Main(props) {
         {title}
       </Typography>
       <Divider />
-      {posts.map((post) => (
+      {/* {posts.map((post) => (
         <Markdown className="markdown" key={post.substring(0, 40)}>
           {post}
         </Markdown>
-      ))}
+      ))} */}
+      <ArticleList />
     </Grid>
   );
 }
