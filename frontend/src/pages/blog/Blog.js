@@ -11,10 +11,14 @@ import FeaturedPost from './FeaturedPost';
 import Main from './Main';
 import Sidebar from './Sidebar';
 import Header from './Header'
+import Footer from './Footer'
 import post1 from './blog-post.1.md';
 import post2 from './blog-post.2.md';
 import post3 from './blog-post.3.md';
 import { Box } from '@mui/system';
+import { useLocation } from "react-router-dom";
+import { memo } from 'react';
+
 
 const sections = [
   { title: 'Technology', url: '#' },
@@ -30,9 +34,9 @@ const sections = [
 ];
 
 const mainFeaturedPost = {
-  title: '测试---测试---测试',
+  title: '测试---测试---测试1',
   description:
-    "测试---测试---测试",
+    "测试---测试---测试1",
   image: 'http://www.jiahuan.tech:8000/static/default_avatar.jpg',
   imageText: 'main image description',
   linkText: 'Continue reading…',
@@ -40,18 +44,18 @@ const mainFeaturedPost = {
 
 const featuredPosts = [
   {
-    title: '测试---测试---测试',
+    title: '测试---测试---测试2',
     date: 'Nov 12',
     description:
-      '测试---测试---测试',
+      '测试---测试---测试2',
     image: 'http://www.jiahuan.tech:8000/static/default_avatar.jpg',
     imageLabel: 'Image Text',
   },
   {
-    title: '测试---测试---测试',
+    title: '测试---测试---测试3',
     date: 'Nov 11',
     description:
-      '测试---测试---测试',
+      '测试---测试---测试3',
     image: 'http://www.jiahuan.tech:8000/static/default_avatar.jpg',
     imageLabel: 'Image Text',
   },
@@ -60,7 +64,7 @@ const featuredPosts = [
 const posts = [post1, post2, post3];
 console.log(posts)
 const sidebar = {
-  title: '测试---测试---测试',
+  title: '测试---测试---测试4',
   description:
     'Etiam porta sem malesuada magna mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.',
   archives: [
@@ -85,36 +89,48 @@ const sidebar = {
 
 const theme = createTheme();
 
-export default function Blog() {
+
+
+const Blog = memo((props) => {
+  let { currentuser } = props
+  const location = useLocation();
+  console.log(location.state)
+  if (location.state) {
+    currentuser = location.state.currentuser;
+  }
+
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Box component="div" display="block">
         <Container maxWidth="lg">
-          <Header title="JiaHuan’s Blog" sections={sections} />
+          <Header title="JiaHuan’s Blog" sections={sections} currentuser={currentuser} />
+
           <main>
-              <MainFeaturedPost post={mainFeaturedPost} />
-              <Grid container spacing={4}>
-                {featuredPosts.map((post) => (
-                  <FeaturedPost key={post.title} post={post} />
-                ))}
-              </Grid>
-              <Grid container spacing={5} sx={{ mt: 3 }}>
-                <Main title="From the firehose" posts={posts} />
-                <Sidebar
-                  title={sidebar.title}
-                  description={sidebar.description}
-                  archives={sidebar.archives}
-                  social={sidebar.social}
-                />
-              </Grid>
+            <MainFeaturedPost post={mainFeaturedPost} />
+            <Grid container spacing={4}>
+              {featuredPosts.map((post) => (
+                <FeaturedPost key={post.title} post={post} />
+              ))}
+            </Grid>
+            <Grid container spacing={5} sx={{ mt: 3 }}>
+              <Main title="From the firehose" posts={posts} />
+              <Sidebar
+                title={sidebar.title}
+                description={sidebar.description}
+                archives={sidebar.archives}
+                social={sidebar.social}
+              />
+            </Grid>
           </main>
         </Container>
       </Box>
-      {/* <Footer
-        title="Footer"
-        description="Something here to give the footer a purpose!"
-      /> */}
+      <Footer
+        title="End."
+        description="Geek Nerd or what else"
+      />
     </ThemeProvider>
   );
-}
+})
+
+export default Blog

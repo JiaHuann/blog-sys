@@ -12,12 +12,16 @@ import Grid from '@mui/material/Grid';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { useNavigate } from "react-router-dom";
+import * as RR from 'react-router-dom'
+
+
 
 function Copyright(props) {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
       {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
+      <Link color="inherit" href="#">
         Jia huan
       </Link>{' '}
       {new Date().getFullYear()}
@@ -28,8 +32,9 @@ function Copyright(props) {
 
 const theme = createTheme();
 
-export default function SignInSide() {
-  const url = 'http://[' + process.env.REACT_APP_BE_SERVER+ ']:8000/api/v1/users/login'
+export default function SignInSide(props) {
+  const navigate = useNavigate()
+  const url = 'http://[' + process.env.REACT_APP_BE_SERVER + ']:8000/api/v1/users/login'
   const handleSubmit = async (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -37,13 +42,13 @@ export default function SignInSide() {
       user: {
         email: data.get('email'),
         passwd: data.get('passwd')
-        
+
       }
     }
 
     try {
       const res = await fetch(url, {
-        mode:'cors',
+        mode: 'cors',
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -53,8 +58,13 @@ export default function SignInSide() {
       const json = await res.json();
       console.log(json)
       alert(JSON.stringify(json));
-      if(json.message === "登陆成功"){
-
+      if (json.message === "登陆成功") {
+        console.log(json.data)
+        navigate("/blog", {
+          state: {
+            currentuser:json.data,
+          },
+        })
       }
 
     } catch (err) {

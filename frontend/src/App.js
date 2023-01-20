@@ -14,12 +14,12 @@ const SignUp = lazy(() => import('./pages/Register/SignUp'))
 
 //测试数据
 const appName = 'blog'
-// const currentUser = {
+// const currentuser = {
 //   username: 'test',
 //   avatar: {`http://[${process.env.REACT_APP_BE_SERVER}]:8000/static/default_avatar.jpg`},
 //   bio: 'user info'
 // }
-const currentUser = null
+const currentuser = null
 
 class App extends Component {
 
@@ -28,7 +28,8 @@ class App extends Component {
       <Suspense fallback={<h1>loading...</h1>}>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/blog" element={<Blog currentUser={currentUser} appName={appName} />} />
+          <Route path="/blog" element={<Blog currentuser={currentuser} appName={appName} />} />
+          <Route path="/blog/:id" element={<Blog appName={appName} />} />
           <Route path="/blog/login" element={<SignInSide />} />
           <Route path="/blog/register" element={<SignUp />} />
           <Route path="/blog/setting" element={<Setting />} />
