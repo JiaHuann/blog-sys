@@ -5,7 +5,7 @@ class Article extends PureComponent {
         return (
             <div>
                 <elment class="slick-slide">
-                    <img className="pull-right" src="http://jiahuan.tech:8000/static/default_avatar.jpg" alt=""/>
+                    <img className="pull-right" src="http://www.jiahuan.tech:8000/static/default_avatar.jpg" alt=""/>
                 </elment>
 
             </div>

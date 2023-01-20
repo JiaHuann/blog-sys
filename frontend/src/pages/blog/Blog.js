@@ -33,7 +33,7 @@ const mainFeaturedPost = {
   title: '测试---测试---测试',
   description:
     "测试---测试---测试",
-  image: 'http://jiahuan.tech:8000/static/default_avatar.jpg',
+  image: 'http://www.jiahuan.tech:8000/static/default_avatar.jpg',
   imageText: 'main image description',
   linkText: 'Continue reading…',
 };
@@ -44,7 +44,7 @@ const featuredPosts = [
     date: 'Nov 12',
     description:
       '测试---测试---测试',
-    image: 'http://jiahuan.tech:8000/static/default_avatar.jpg',
+    image: 'http://www.jiahuan.tech:8000/static/default_avatar.jpg',
     imageLabel: 'Image Text',
   },
   {
@@ -52,7 +52,7 @@ const featuredPosts = [
     date: 'Nov 11',
     description:
       '测试---测试---测试',
-    image: 'http://jiahuan.tech:8000/static/default_avatar.jpg',
+    image: 'http://www.jiahuan.tech:8000/static/default_avatar.jpg',
     imageLabel: 'Image Text',
   },
 ];

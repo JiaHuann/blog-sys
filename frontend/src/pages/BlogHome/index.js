@@ -28,7 +28,7 @@ class BlogHome extends Component {
                             <div class="isotope-box">
                                 <div class="isotope-item" data-type="nature">
                                     <figure class="snip1321">
-                                        <img src="http://jiahuan.tech:8000/static/default_avatar.jpg" alt="sq-sample26" />
+                                        <img src="http://www.jiahuan.tech:8000/static/default_avatar.jpg" alt="sq-sample26" />
                                         <figcaption>
                                             <a href="assets/images/portfolio-01.jpg" data-lightbox="image-1" data-title="Caption"><i
                                                 class="fa fa-search"></i></a>
@@ -40,7 +40,7 @@ class BlogHome extends Component {
 
                                 <div class="isotope-item" data-type="people">
                                     <figure class="snip1321">
-                                        <img src="http://jiahuan.tech:8000/static/default_avatar.jpg" alt="sq-sample26" />
+                                        <img src="http://www.jiahuan.tech:8000/static/default_avatar.jpg" alt="sq-sample26" />
                                         <figcaption>
                                             <a href="assets/images/portfolio-02.jpg" data-lightbox="image-1" data-title="Caption"><i
                                                 class="fa fa-search"></i></a>
@@ -52,7 +52,7 @@ class BlogHome extends Component {
 
                                 <div class="isotope-item" data-type="animals">
                                     <figure class="snip1321">
-                                        <img src="http://jiahuan.tech:8000/static/default_avatar.jpg" alt="sq-sample26" />
+                                        <img src="http://www.jiahuan.tech:8000/static/default_avatar.jpg" alt="sq-sample26" />
                                         <figcaption>
                                             <a href="assets/images/portfolio-03.jpg" data-lightbox="image-1" data-title="Caption"><i
                                                 class="fa fa-search"></i></a>
@@ -64,7 +64,7 @@ class BlogHome extends Component {
 
                                 <div class="isotope-item" data-type="people">
                                     <figure class="snip1321">
-                                        <img src="http://jiahuan.tech:8000/static/default_avatar.jpg" alt="sq-sample26" />
+                                        <img src="http://www.jiahuan.tech:8000/static/default_avatar.jpg" alt="sq-sample26" />
                                         <figcaption>
                                             <a href="assets/images/portfolio-04.jpg" data-lightbox="image-1" data-title="Caption"><i
                                                 class="fa fa-search"></i></a>
@@ -76,7 +76,7 @@ class BlogHome extends Component {
 
                                 <div class="isotope-item" data-type="nature">
                                     <figure class="snip1321">
-                                        <img src="http://jiahuan.tech:8000/static/default_avatar.jpg" alt="sq-sample26" />
+                                        <img src="http://www.jiahuan.tech:8000/static/default_avatar.jpg" alt="sq-sample26" />
                                         <figcaption>
                                             <a href="assets/images/portfolio-05.jpg" data-lightbox="image-1" data-title="Caption"><i
                                                 class="fa fa-search"></i></a>
@@ -88,7 +88,7 @@ class BlogHome extends Component {
 
                                 <div class="isotope-item" data-type="animals">
                                     <figure class="snip1321">
-                                        <img src="http://jiahuan.tech:8000/static/default_avatar.jpg" alt="sq-sample26" />
+                                        <img src="http://www.jiahuan.tech:8000/static/default_avatar.jpg" alt="sq-sample26" />
                                         <figcaption>
                                             <a href="assets/images/portfolio-06.jpg" data-lightbox="image-1" data-title="Caption"><i
                                                 class="fa fa-search"></i></a>
