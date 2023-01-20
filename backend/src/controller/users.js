@@ -74,7 +74,7 @@ module.exports.userLogin = async (req, res, next) => {
         //2.验证请求数据字段、
         let { error, valid } = validUserLogin(email, passwd)
         if (!valid) {
-            throw new HttpException(401, '用户登录数据格式有误', 'login data format err')
+            throw new HttpException(401, '用户登录数据格式有误', error)
         }
 
         //3.验证业务逻辑

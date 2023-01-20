@@ -22,7 +22,7 @@ module.exports.validUserLogin = (email, passwd) => {
     //把不同字段错误合并到一个error里
     let error = {}
 
-    if (validator.isEmpty(email) && validator.isEmail(email)) {
+    if (validator.isEmpty(email) || !validator.isEmail(email)) {
         error.email = '邮箱格式不对或为空'
     }
 

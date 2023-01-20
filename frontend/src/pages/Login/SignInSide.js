@@ -53,6 +53,10 @@ export default function SignInSide() {
       const json = await res.json();
       console.log(json)
       alert(JSON.stringify(json));
+      if(json.message === "登陆成功"){
+
+      }
+
     } catch (err) {
       alert(err.message);
     }
