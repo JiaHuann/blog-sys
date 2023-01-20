@@ -30,8 +30,8 @@ function Header(props) {
         {currentUser ? (
           <span>welcom</span>
         ) : (
-          <Link href="/blog/register">
-            <Button variant="contained">注 册</Button>
+          <Link href="/blog/login">
+            <Button variant="contained">登 录</Button>
           </Link>
         )}
       </Toolbar>

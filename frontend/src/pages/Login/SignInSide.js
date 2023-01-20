@@ -29,14 +29,36 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function SignInSide() {
-  const handleSubmit = (event) => {
+  const url = 'http://[' + process.env.REACT_APP_BE_SERVER+ ']:8000/api/v1/users/login'
+  const handleSubmit = async (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
+    const payload = {
+      user: {
+        email: data.get('email'),
+        passwd: data.get('passwd')
+        
+      }
+    }
+
+    try {
+      const res = await fetch(url, {
+        mode:'cors',
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(payload)
+      });
+      const json = await res.json();
+      console.log(json)
+      alert(JSON.stringify(json));
+    } catch (err) {
+      alert(err.message);
+    }
   };
+
+
 
   return (
     <ThemeProvider theme={theme}>
@@ -48,7 +70,7 @@ export default function SignInSide() {
           sm={4}
           md={7}
           sx={{
-            backgroundImage: 'url(https://source.unsplash.com/random)',
+            backgroundImage: 'url(https://s2.loli.net/2023/01/20/QD4hJtpyqw6vT3W.jpg)',
             backgroundRepeat: 'no-repeat',
             backgroundColor: (t) =>
               t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900],
@@ -78,7 +100,7 @@ export default function SignInSide() {
                 required
                 fullWidth
                 id="email"
-                label="Email Address"
+                label="邮箱地址"
                 name="email"
                 autoComplete="email"
                 autoFocus
@@ -87,15 +109,15 @@ export default function SignInSide() {
                 margin="normal"
                 required
                 fullWidth
-                name="password"
-                label="Password"
-                type="password"
-                id="password"
+                name="passwd"
+                label="悄悄告诉我密码~"
+                type="passwd"
+                id="passwd"
                 autoComplete="current-password"
               />
               <FormControlLabel
                 control={<Checkbox value="remember" color="primary" />}
-                label="Remember me"
+                label="记住我！"
               />
               <Button
                 type="submit"
@@ -108,12 +130,12 @@ export default function SignInSide() {
               <Grid container>
                 <Grid item xs>
                   <Link href="#" variant="body2">
-                    Forgot password?
+                    真的忘掉密码了耶?
                   </Link>
                 </Grid>
                 <Grid item>
-                  <Link href="#" variant="body2">
-                    {"Don't have an account? Sign Up"}
+                  <Link href='/blog/register' variant="body2">
+                    {"喵呜！还没有账号嘛？快注册一个~"}
                   </Link>
                 </Grid>
               </Grid>

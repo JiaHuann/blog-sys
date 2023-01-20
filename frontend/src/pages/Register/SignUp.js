@@ -18,7 +18,7 @@ function Copyright(props) {
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
       {'Copyright © '}
       <Link color="inherit" href="https://mui.com/">
-        Your Website
+        JiaHuan
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
@@ -86,7 +86,7 @@ export default function SignUp() {
                   required
                   fullWidth
                   id="username"
-                  label="username"
+                  label="你的用户名~"
                   name="username"
                   autoComplete="username"
                 />
@@ -96,7 +96,7 @@ export default function SignUp() {
                   required
                   fullWidth
                   id="email"
-                  label="Email Address"
+                  label="告诉我邮箱地址~"
                   name="email"
                   autoComplete="email"
                 />
@@ -106,7 +106,7 @@ export default function SignUp() {
                   required
                   fullWidth
                   name="passwd"
-                  label="Password"
+                  label="悄悄告诉我密码"
                   type="passwd"
                   id="passwd"
                   autoComplete="new-password"
@@ -115,7 +115,7 @@ export default function SignUp() {
               <Grid item xs={12}>
                 <FormControlLabel
                   control={<Checkbox value="allowExtraEmails" color="primary" />}
-                  label="I want to receive inspiration, marketing promotions and updates via email."
+                  label="<-(´∇｀)我想通过email收到推送哦！"
                 />
               </Grid>
             </Grid>
@@ -129,8 +129,8 @@ export default function SignUp() {
             </Button>
             <Grid container justifyContent="flex-end">
               <Grid item>
-                <Link href="#" variant="body2">
-                  Already have an account? Sign in
+                <Link href="/blog/login" variant="body2">
+                  喵呜！已经有帐号啦？快登录吧~
                 </Link>
               </Grid>
             </Grid>
